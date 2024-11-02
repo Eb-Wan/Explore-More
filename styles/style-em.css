@@ -25,7 +25,16 @@ img.Icon {
     filter: brightness(0) saturate(100%) invert(100%) sepia(4%) saturate(7500%) hue-rotate(180deg) brightness(101%) contrast(114%) drop-shadow(0px 4px 4px rgba(0,0,0,0.5));
     width: 40px;
     height: 40px;
-    margin: 16px;
+    margin: 4px;
+}
+img.IconButton {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(4%) saturate(7500%) hue-rotate(180deg) brightness(101%) contrast(114%) drop-shadow(0px 4px 4px rgba(0,0,0,0.5));
+    width: 40px;
+    height: 40px;
+    margin: 4px;
+}
+img.IconButton:hover {
+    filter: brightness(0) saturate(100%) invert(80%) sepia(0%) saturate(381%) hue-rotate(224deg) brightness(87%) contrast(86%);
 }
 button {
     border-radius: 50px;
@@ -36,6 +45,21 @@ button {
 button:hover {
     filter: brightness(150%);
 }
+input:focus{
+    outline: none;
+}
+@media (min-width: 768px) {
+    img.Icon {
+        width: 40px;
+        height: 40px;
+        margin: 16px;
+    }
+    img.IconButton {
+        width: 40px;
+        height: 40px;
+        margin: 16px;
+    }
+}
 
 body {
     font-family: "Roboto Mono", serif;
@@ -43,7 +67,7 @@ body {
     src: url('../fonts/Roboto_Mono/RobotoMono-VariableFont_wght.ttf') format('truetype');
 
     margin: 0;
-    padding: 4%;
+    padding: 0;
     background-image: url(../images/living-room-8285278_1920.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -57,12 +81,18 @@ body {
     --BackgroundColorBlue: #024A59;
     --TextColorBright: #FFFFFF;
     --TextColorDark: #000000;
+    --TextColorBrightOrange: #F27241;
     --ButtonColorRed: #FF5757;
     --ButtonColorOrange: #FFB966;
     --ButtonColorGreen: #86E573;
     --ButtonColorTurquoise: #73DBE5;
     --ButtonColorBlue: #80B0FF;
     --ButtonColorIndigo: #6F57FF;
+}
+@media (min-width: 768px) {
+    body {
+        padding: 4%;
+    }
 }
 
 header {
@@ -72,30 +102,36 @@ header {
 
     box-shadow: inset 0px 4px 4px 0px rgba(255,255,255,0.32), 0px 4px 4px 0px rgba(0,0,0,0.77);
     background-color: var(--BackgroundColor);
-    padding: 2em;
+    padding: 0.5em;
     box-sizing: border-box;
 
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    gap: 16px;
+    gap: 4px;
 }
-header > div {
-    height: 125px;
+.HeaderLine {
+    height: 80px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-header > :nth-child(1) {
-    display: flex;
-    flex-direction: row;
+.HeaderLine:nth-child(1) {
     justify-content: space-between;
-    align-items: center;
 }
-header > :nth-child(1) > img{
-    width: 300px;
-    height: 100px;
+.HeaderLine:nth-child(n+2) {
+    display:none;
+}
+.HeaderLine:nth-child(2) {
+    flex-direction: column;
+}
+
+.HeaderLine:nth-child(1) > :nth-child(1) {
+    display: flex;
+}
+#HeaderLogo{
+    width: 180px;
+    height: 50px;
     object-fit: cover;
 }
 
@@ -103,13 +139,14 @@ header > :nth-child(1) > img{
     display: flex;
     overflow: scroll;
     align-items: center;
-    width: 60%;
+    width: 80%;
     max-width: 1700px;
     scrollbar-width: none;
     mask-image: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 95%, rgba(0,0,0,0) 100%);
+    /*C'est ce qui fait que les boutons disparaissent en bout de la ligne*/
 }
 #HeaderCarousel::-webkit-scrollbar { 
-    display: none;
+    display: none; /*Désactiver la scrollbar sur chromium*/
 }
 #HeaderCarousel button{
     display: flex;
@@ -136,7 +173,25 @@ header > :nth-child(1) > img{
 #HeaderCarousel button:nth-child(6){
     background-color: var(--ButtonColorIndigo);
 }
-
+@media (min-width: 768px) {
+    header {
+        padding: 2em;
+        gap: 16px;
+    }
+    .HeaderLine {
+        height: 150px;
+    }
+    .HeaderLine:nth-child(1) > :nth-child(1) {
+        display:none;
+    }
+    .HeaderLine:nth-child(n+2) {
+        display:flex;
+    }
+    #HeaderLogo{
+        width: 300px;
+        height: 100px;
+    }
+}
 
 
 main {
@@ -153,7 +208,6 @@ main {
 
 footer {
     width: 100%;
-    height: 400px;
     backdrop-filter: blur(64px);
     border-radius: 0 0 50px 50px;
 
@@ -161,4 +215,106 @@ footer {
     background-color: var(--BackgroundColorBlue);
     padding: 16px;
     box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 3em;       /* Gérer l'espacement de mes div dans le footer (se fait automatiquement) */
+}
+
+
+#FooterReseaux{         /* Disposition de mes icones de Réseaux sociaux */
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 20px;
+    align-items: center;
+    filter: brightness(0) saturate(100%) invert(70%) sepia(44%) saturate(5423%) hue-rotate(332deg) brightness(97%) contrast(95%);
+}
+
+#FooterReseaux *{           /* Taille de mes icones */
+    width: 40px;
+    height: 40px;
+}
+
+#FooterNewsletter{
+    width: 96%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+    
+}
+/* Style pour le select et les input dans le footer */
+#FooterNewsletter input, select{
+    color: var(--TextColorBrightOrange);
+    font-size: 16px;
+    border-radius: 25px;
+    height: 50px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 8px;
+    box-sizing: border-box;
+}
+/* PlaceHolder */
+#FooterNewsletter input::placeholder{
+    color: var(--TextColorBrightOrange);
+    opacity: 0.5;
+    font-style: italic;
+}
+#FooterNewsletter span:nth-child(1){
+    color: var(--TextColorBrightOrange);  
+    font-size: 32px;
+}
+#FooterNewsletter p:nth-child(2){
+    font-size: 14px;
+}
+#FooterNewsletter #FooterInputEmail{
+    width: 100%;
+}
+#FooterNewsletter > div{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+#Genre{
+    width: 20%;
+}
+#FooterNewsletter > div input{
+    width: 40%;
+}
+
+#FooterMention{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+/* Déplacé les règles ul/li sur le footer*/
+#FooterMention li{
+    list-style-type: none;
+}
+
+#FooterMention ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 2em;
+    padding: 0px;
+}
+#payment img{
+    border-radius: 25px;
+}
+
+@media (min-width: 768px) {
+    #FooterNewsletter{
+        width: 1000px;
+    }
+    #FooterMention{
+        flex-direction: row;
+        align-items: start;
+        width: 1000px;
+    }
 }

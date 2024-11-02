@@ -12,18 +12,21 @@
 </head>
 <body>
     <header>
-        <div>
-            <img src="./images/logoad1.png" alt="Logo Du Site">
+        <div class="HeaderLine">
             <div>
-                <img src="./icons/search.svg" alt="Icône Recherche" class="Icon">
-                <img src="./icons/person.svg" alt="Icône Compte" class="Icon">
+                <img src="./icons/list.svg" alt="Icône Compte" class="IconButton">
+            </div>
+            <img src="./images/logoad1.png" alt="Logo Du Site" id="HeaderLogo">
+            <div>
+                <img src="./icons/search.svg" alt="Icône Recherche" class="IconButton">
+                <img src="./icons/person.svg" alt="Icône Compte" class="IconButton">
             </div>
         </div>
-        <div>
+        <div class="HeaderLine">
             <div class="HeaderLargeTitle">Découvrez une nouvelle façon de voyager</div>
             <div class="HeaderSubTitle">Ne vous éparpillez pas, tout est là.</div>
         </div>
-        <div>
+        <div class="HeaderLine">
             <div id="HeaderCarousel">
                 <button>Séjours <img src="./icons/suitcase-fill.svg" alt="Icône Séjours" class="Icon"></button>
                 <button>Promotions <img src="./icons/percent.svg" alt="Icône Promotions" class="Icon"></button>
@@ -38,7 +41,61 @@
         Main
     </main>
     <footer>
-        Footer
+        <div id="FooterReseaux">
+            <img src="./icons/facebook.svg" alt="icone facebook">
+            <img src="./icons/pinterest.svg" alt="icone pinterest">
+            <img src="./icons/twitter-x.svg" alt="icone twitter-x">
+            <img src="./icons/instagram.svg" alt="icone instagram">
+            <img src="./icons/youtube.svg" alt="icone youtube">
+            <img src="./icons/threads.svg" alt="icone threads">
+            <img src="./icons/tiktok.svg" alt="icone tiktok">
+        </div>
+        <div id="FooterNewsletter">
+            <span>Newsletter</span>
+            <p>Abonnez-vous à notre newsletter et recevez tous nos bons plans</p>
+            <input id="FooterInputEmail" type="text" placeholder="email@example.com">
+            <div>
+                <select id="Genre" name="GenderChoice">
+                    <option value="Genre" selected disabled>Genre</option>
+                    <option value="Mr">Mr</option>
+                    <option value="Mme">Mme</option>
+                </select>
+                <input type="text" placeholder="Prénom">
+                <input type="text" placeholder="Nom">
+            </div>
+        </div>
+        <div id="FooterMention">
+            <ul>
+                <li><b>A propos d'Explore Media</b></li>
+                <li>Qui sommes nous</li>
+                <li>Nous rejoindre</li>
+                <li>Nos partenaires</li>
+            </ul>
+            <ul>
+                <li><b>Avant de partir</b></li>
+                <li>Bon à savoir</li>
+                <li>Visas, santé</li>
+                <li>Nos assurances</li>
+            </ul>
+            <ul>
+                <li><b>Infos Pratiques</b></li>
+                <li>Contactez nous</li>
+                <li>Avis clients</li>
+                <li>Votre avis</li>
+                <li>FAQ</li>
+                <li>Plan du site</li>
+            </ul>
+            <ul>
+                <li><b>Informations légales</b></li>
+                <li>CGV & CGA</li>
+                <li>Mentions légales</li>
+                <li>Politique de cookies</li>
+                <li>Gérer mes cookies</li>
+            </ul>
+        </div>
+        <div id="payment">
+            <img src="./images/Capture.PNG" alt="">
+        </div>
     </footer>
 </body>
 </html>
